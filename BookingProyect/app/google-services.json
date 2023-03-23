@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "812850778784",
+    "project_id": "bookingdiego-6ae29",
+    "storage_bucket": "bookingdiego-6ae29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812850778784:android:71aee2748526e8c6b32fc5",
+        "android_client_info": {
+          "package_name": "com.diego.bookingproyect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812850778784-6231qc2op7isse8ht1f72jk7ac8vsodo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqnOr4t7aTZx70PZUzluvhULExYGUdkSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812850778784-6231qc2op7isse8ht1f72jk7ac8vsodo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
