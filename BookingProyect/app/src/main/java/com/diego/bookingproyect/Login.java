@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -70,7 +72,15 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 //Pilla el id del usuario
-                String id = mAuth.getCurrentUser().getUid();
+                String id = "";
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null) {
+                    id = currentUser.getUid();
+                } else {
+                    Toast.makeText(Login.this, "No se pudo obtener el usuario actual", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 //Hace el map
                 Map<String, Object> map = new HashMap<>();
                 map.put("id", id);
@@ -85,7 +95,7 @@ public class Login extends AppCompatActivity {
                         startActivity(new Intent(Login.this, Principal.class));
                         Toast.makeText(Login.this, "Usuario registrado con exito", Toast.LENGTH_SHORT).show();
                     }
-                // Si falla notifica del error
+                    // Si falla notifica del error
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
