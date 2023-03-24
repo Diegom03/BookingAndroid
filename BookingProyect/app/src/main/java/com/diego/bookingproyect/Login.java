@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.register_button);
+        Button myButton = findViewById(R.id.login_button);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,10 +48,18 @@ public class Login extends AppCompatActivity {
                 String passwordUser = password.getText().toString().trim();
 
                 if (emailUser.isEmpty() && passwordUser.isEmpty()) {
-                    Toast.makeText(Login.this, "Rellena los datos para realizar esta accion", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Rellena los datos para realizar esta accion", Toast.LENGTH_LONG).show();
                 } else {
                     registerUser(emailUser, passwordUser);
                 }
+            }
+        });
+
+
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Login.this, "Button clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
