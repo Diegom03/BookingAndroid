@@ -38,6 +38,9 @@ public class Populares extends AppCompatActivity {
         Query query = mFirebase.collection("hotel");
 
         FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
+        hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
+        hotelAdapter.notifyDataSetChanged();
+        recyclerView.setAdapter(hotelAdapter);
 
         btn_logout = findViewById(R.id.logout_button);
 
@@ -49,5 +52,17 @@ public class Populares extends AppCompatActivity {
                 startActivity(new Intent(Populares.this, Login.class));
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        hotelAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        hotelAdapter.stopListening();
     }
 }

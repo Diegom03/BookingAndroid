@@ -9,6 +9,8 @@ public class Hotel {
     public int precio;
     public int habitaciones;
 
+    public Hotel(){}
+
     public Hotel(String name, String imagen, String ublicacion, int posicion, int precio, int habitaciones) {
         this.name = name;
         this.imagen = imagen;

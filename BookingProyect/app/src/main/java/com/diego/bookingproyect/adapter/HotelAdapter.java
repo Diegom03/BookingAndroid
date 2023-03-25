@@ -26,8 +26,8 @@ public class HotelAdapter extends FirestoreRecyclerAdapter<Hotel, HotelAdapter.V
     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Hotel hotel) {
         // set data to views in holder
         holder.hotelNameTextView.setText(hotel.getName());
-        holder.hotelPriceTextView.setText(hotel.getPrecio());
-        holder.hotelRatingTextView.setText(hotel.getPosicion());
+        holder.hotelPriceTextView.setText(String.valueOf(hotel.getPrecio()));
+        holder.hotelRatingTextView.setText(String.valueOf(hotel.getPosicion()));
         // set image to holder using a library such as Glide or Picasso
         Glide.with(holder.hotelImageView.getContext())
                 .load(hotel.getImagen())
