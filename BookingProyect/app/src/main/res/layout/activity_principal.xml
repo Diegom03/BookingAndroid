@@ -1,59 +1,142 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/travel_bg">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="40dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="317dp"
-        android:layout_height="74dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="56dp"
-        app:srcCompat="@drawable/booking" />
+        <Button
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/top_menu_yello" />
 
-    <ImageButton
-        android:id="@+id/logout_button"
-        android:layout_width="56dp"
-        android:layout_height="54dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        app:srcCompat="@drawable/logout" />
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="28dp"
+            android:layout_height="29dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bottom_arrow" />
 
-    <Button
-        android:id="@+id/button"
+    </RelativeLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:layout_marginLeft="160dp"
-        android:text="View all" />
+        android:text="Explore"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="40dp"/>
 
-    <EditText
-        android:id="@+id/best_hotels_edittext"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Nuestras mejores ofertas"
-        android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hotels_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/best_hotels_edittext"
-        android:layout_marginTop="5dp"
-        android:clipToPadding="false"
-        android:padding="16dp"
-        android:scrollbars="vertical" />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="88dp"
+            android:background="@drawable/card_1"
+            android:layout_gravity="center" />
 
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="88dp"
+            android:background="@drawable/card_2"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"/>
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="88dp"
+            android:background="@drawable/card_3"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="88dp"
+            android:background="@drawable/card_4"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Popular destinations"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="160dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/card_view_1"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/card_view_4"
+            android:layout_marginLeft="120dp"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/card_view_1"
+            android:layout_marginLeft="230dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Best prices"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginLeft="40dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/card_view_2"
+            android:layout_marginLeft="25dp"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/card_view_3"
+            android:layout_marginLeft="140dp"/>
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/card_view_2"
+            android:layout_marginLeft="255dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

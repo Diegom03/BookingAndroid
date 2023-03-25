@@ -5,22 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Menu extends AppCompatActivity {
+public class Populares extends AppCompatActivity {
 
-
-    Button btn_logout;
+    ImageButton btn_logout;
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_populares);
 
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -32,7 +31,7 @@ public class Menu extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 finish();
-                startActivity(new Intent(Menu.this, Login.class));
+                startActivity(new Intent(Populares.this, Login.class));
             }
         });
     }
