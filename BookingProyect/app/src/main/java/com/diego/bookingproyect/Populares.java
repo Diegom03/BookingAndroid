@@ -1,20 +1,29 @@
 package com.diego.bookingproyect;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.diego.bookingproyect.adapter.HotelAdapter;
+import com.diego.bookingproyect.model.Hotel;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class Populares extends AppCompatActivity {
 
-    ImageButton btn_logout;
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
+
+    ImageButton btn_logout;
+    RecyclerView recyclerView;
+    HotelAdapter hotelAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,12 @@ public class Populares extends AppCompatActivity {
 
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        recyclerView = findViewById(R.id.hotels_populares);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Query query = mFirebase.collection("hotel");
+
+        FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
 
         btn_logout = findViewById(R.id.logout_button);
 

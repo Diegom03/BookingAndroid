@@ -41,8 +41,6 @@ public class Principal extends AppCompatActivity {
         btn_populares.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                finish();
                 startActivity(new Intent(Principal.this, Populares.class));
             }
         });
