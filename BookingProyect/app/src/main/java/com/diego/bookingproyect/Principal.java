@@ -14,6 +14,7 @@ public class Principal extends AppCompatActivity {
 
 
     Button btn_logout;
+    Button btn_populares;
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
 
@@ -26,6 +27,7 @@ public class Principal extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         btn_logout = findViewById(R.id.logout_button);
+        btn_populares = findViewById(R.id.popular);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +35,15 @@ public class Principal extends AppCompatActivity {
                 mAuth.signOut();
                 finish();
                 startActivity(new Intent(Principal.this, Login.class));
+            }
+        });
+
+        btn_populares.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                finish();
+                startActivity(new Intent(Principal.this, Populares.class));
             }
         });
     }
