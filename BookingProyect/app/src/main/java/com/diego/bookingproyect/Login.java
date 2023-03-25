@@ -26,6 +26,7 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
 
     Button btn_register;
+    Button btn_login;
     EditText email, password;
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
@@ -41,7 +42,7 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_register = findViewById(R.id.register_button);
-        Button myButton = findViewById(R.id.login_button);
+        btn_login = findViewById(R.id.login_button);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,13 +59,41 @@ public class Login extends AppCompatActivity {
         });
 
 
-        myButton.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Login.this, "Button clicked", Toast.LENGTH_SHORT).show();
+                String emailUser = email.getText().toString().trim();
+                String passwordUser = password.getText().toString().trim();
+
+                if (emailUser.isEmpty() && passwordUser.isEmpty()) {
+                    Toast.makeText(Login.this, "Rellena los datos para realizar esta accion", Toast.LENGTH_LONG).show();
+                } else {
+                    loginUser(emailUser, passwordUser);
+                }
             }
         });
 
+    }
+
+    private void loginUser(String emailUser, String passwordUser) {
+        mAuth.signInWithEmailAndPassword(emailUser, passwordUser).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    finish();
+                    startActivity(new Intent(Login.this, Principal.class));
+                    Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Login.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Login.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void registerUser(String emailUser, String passwordUser) {
@@ -109,5 +138,17 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "Error al registrar", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // COMPRUEBA SI LA SESIÓN ESTA INICIADA
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            startActivity(new Intent(Login.this, Principal.class));
+            finish();
+        }
     }
 }
