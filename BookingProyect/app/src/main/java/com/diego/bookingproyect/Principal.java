@@ -27,7 +27,7 @@ public class Principal extends AppCompatActivity {
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        btn_logout = findViewById(R.id.log_out_button);
+        btn_logout = findViewById(R.id.logout_button);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
