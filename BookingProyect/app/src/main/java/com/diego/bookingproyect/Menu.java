@@ -38,7 +38,7 @@ public class Menu extends AppCompatActivity {
         btn_precio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Menu.this, Populares.class));
+                startActivity(new Intent(Menu.this, Precio.class));
             }
         });
 

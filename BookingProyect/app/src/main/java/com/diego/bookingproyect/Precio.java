@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class Populares extends AppCompatActivity {
+public class Precio extends AppCompatActivity {
 
     FirebaseFirestore mFirebase;
     FirebaseAuth mAuth;
@@ -28,14 +28,13 @@ public class Populares extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_populares);
-
+        setContentView(R.layout.activity_precio);
         mFirebase = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        recyclerView = findViewById(R.id.hotels_populares);
+        recyclerView = findViewById(R.id.hotels_precio);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Query query = mFirebase.collection("hotel").orderBy("posicion", Query.Direction.ASCENDING);
+        Query query = mFirebase.collection("hotel").orderBy("precio", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Hotel> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Hotel>().setQuery(query, Hotel.class).build();
         hotelAdapter = new HotelAdapter(firestoreRecyclerOptions);
@@ -49,7 +48,7 @@ public class Populares extends AppCompatActivity {
             public void onClick(View v) {
                 mAuth.signOut();
                 finish();
-                startActivity(new Intent(Populares.this, Login.class));
+                startActivity(new Intent(Precio.this, Login.class));
             }
         });
     }

@@ -38,7 +38,7 @@
         android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hotels_populares"
+        android:id="@+id/hotels_precio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/best_hotels_edittext"
