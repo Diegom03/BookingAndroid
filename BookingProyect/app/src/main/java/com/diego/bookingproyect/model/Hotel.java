@@ -2,30 +2,30 @@ package com.diego.bookingproyect.model;
 
 public class Hotel {
 
-    public String name;
+    public String nombre;
     public String imagen;
-    public String ublicacion;
+    public String ubicacion;
     public int posicion;
     public int precio;
     public int habitaciones;
 
     public Hotel(){}
 
-    public Hotel(String name, String imagen, String ublicacion, int posicion, int precio, int habitaciones) {
-        this.name = name;
+    public Hotel(String nombre, String imagen, String ubicacion, int posicion, int precio, int habitaciones) {
+        this.nombre = nombre;
         this.imagen = imagen;
-        this.ublicacion = ublicacion;
+        this.ubicacion = ubicacion;
         this.posicion = posicion;
         this.precio = precio;
         this.habitaciones = habitaciones;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getImagen() {
@@ -36,12 +36,12 @@ public class Hotel {
         this.imagen = imagen;
     }
 
-    public String getUblicacion() {
-        return ublicacion;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setUblicacion(String ublicacion) {
-        this.ublicacion = ublicacion;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public int getPosicion() {
